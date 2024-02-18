@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EFT CZ/SK - Žádost o unban</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+	<%- include('homebtn'); -%>
+
+	<main>
+		<h1>EFT CZ/SK Penalizace</h1>
+
+		<div class="penalty-selector">
+			<button id="p-pban-btn">Bany</button>
+			/
+			<button id="p-mute-btn">Mutes</button>
+		</div>
+
+		<section id="pban-table">
+			<h2>Ban List</h2>
+			<section class="penalties-table">
+				<% for(const pban of pbans) { %>
+					<div class="penalty" title=<%= pban._id %> >
+						<p class="user"><%= pban.userName %><br><span class="userid"><%= pban.userID %></span></p>
+						<p class="reason"><%= pban.reason %></p>
+						<p class="timestamp"><%= moment(pban.createdAt).tz("Europe/Prague").format("DD.MM.YYYY HH:mm:ss") %></p>
+					</div>
+				<% } %>
+			</section>
+		</section>
+
+		<section id="mute-table">
+			<h2>Mute List</h2>
+			<section class="penalties-table">
+				<% for(const mute of mutes) { %>
+					<div class="penalty" title=<%= mute._id %> >
+						<p class="user"><%= mute.userName %><br><%= mute.userID %></p>
+						<p class="reason"><%= mute.reason %></p>
+						<p class="timestamp"><%= moment(mute.createdAt).tz("Europe/Prague").format("DD.MM.YYYY HH:mm:ss") %></p>
+					</div>
+				<% } %>
+			</section>
+		</section>
+
+		<div class="hover">Drž kurzor na penalizácii pre zobrazenie ID!</div>
+	</main>
+</body>
+</html>
+
+<script src="/js/penalties.js"></script>

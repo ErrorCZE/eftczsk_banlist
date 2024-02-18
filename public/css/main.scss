@@ -1,0 +1,221 @@
+@font-face {
+	font-family: Bender;
+	font-display: swap;
+	src: url(/fonts/Bender.eot);
+	src: url(/fonts/Bender.eot?#iefix) format("embedded-opentype"), url(/fonts/Bender.woff) format("woff"), url(/fonts/Bender.ttf) format("truetype"), url(/fonts/Bender.svg#benderregular) format("svg");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Bender;
+}
+
+html {
+	background: url("/img/eftbanlist-bg.webp") no-repeat center center fixed;
+	background-size: cover;
+	color: #ececec;
+}
+
+body {
+	height: 100vh !important;
+	max-height: 100vh !important;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+main {
+	display: grid;
+	justify-content: center;
+	align-content: start;
+	gap: 2px;
+
+	background: rgba(0,0,0,0.65);
+	padding: 16px;
+	margin: 8px 64px;
+	border-radius: 4px;
+	
+	h1, h2, h3 {text-align: center;}
+	@media(max-width: 1024px) {padding: 8px;margin: 16px;}
+	@media(max-width: 420px) {margin: 8px 0px;}
+}
+
+.home-btn {
+	display: block;
+	position: fixed;
+	left: 16px;
+	top: 16px;
+
+	color: white;
+	text-decoration: none;
+	transition: 0.1s;
+	font-weight: bold;
+	
+	&:hover {transform: scale(1.2);}
+	@media(max-width: 720px) {
+		left: 8px; top: 8px; &:hover {transform: scale(1.1);}
+	}
+}
+
+.error-red {color: red;}
+
+// ==========
+// Index Menu
+// ==========
+.banlist-mainmenu {
+	display: grid;
+	grid-auto-flow: row;
+	justify-content: center;
+	text-align: center;
+	gap: 8px;
+	padding: 16px;
+
+	a {
+		font-size: 24px;
+		text-decoration: none;
+		color: grey;
+		padding: 2px 8px;
+		&:hover {color: white;}
+	}
+}
+
+.mainmenu-login {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: space-between;
+	.credits {color: rgba($color: white, $alpha: 0.25);}
+}
+
+// =========
+// Penalties
+// =========
+.penalty-selector {
+	justify-self: center;
+	button {
+		font-size: 18px;
+		border: none;
+		outline: none;
+		background: none;
+		color: grey;
+		cursor: pointer;
+		&:hover {color: white;}
+	}
+}
+
+.penalties-table {
+	display: grid;
+	grid-auto-flow: row;
+	gap: 4px;
+
+	min-width: 75vw;
+	max-height: 65vh;
+	overflow-y: scroll;
+	padding: 16px;
+
+	.penalty {
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		align-items: center !important;
+		gap: 8px;
+		border-bottom: 1px solid rgba($color: white, $alpha: 0.25);
+		.user, .reason {word-break: break-all;}
+		.timestamp {text-align: right;}
+		.userid {color: grey;}
+		.banreason {color: red;}
+		.unban {color: green;}
+
+		@media(max-width: 720px) {
+			grid-template-columns: initial;
+			grid-auto-flow: row;
+			.reason {border-left: 1px solid white; padding-left: 3px;}
+			.timestamp {text-align: left;}
+		}
+	}
+}
+
+// ==============
+// Zadost O Unban
+// ==============
+form {
+	display: grid;
+	grid-auto-flow: row;
+	justify-content: center;
+	padding: 16px;
+	gap: 16px;
+
+	.form-input {
+		display: grid;
+		grid-auto-flow: row;
+		label {font-size: 18px;}
+		input {
+			background: none;
+			outline: none;
+			border: none;
+
+			font-size: 20px;
+			color: white;
+			border-bottom: 1px solid grey;
+			padding: 2px 4px;
+			&:focus {border-color: white;}
+		}
+	}
+
+	button {
+		outline: none;
+		border: none;
+		background: grey;
+
+		font-size: 20px;
+		padding: 2px 4px;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover {background: rgba($color: white, $alpha: 0.8);}
+		&:active {background: rgba($color: white, $alpha: 1);}
+	}
+}
+
+.ticket-successful {
+	display: grid;
+	grid-auto-flow: row;
+	justify-content: center;
+	justify-items: center;
+	gap: 16px;
+	padding-top: 16px;
+
+	.ticket-id {
+		display: grid;
+		justify-content: center;
+		background: white;
+		color: black;
+		font-size: 24px;
+		padding: 8px;
+		border-radius: 4px;
+		font-weight: bold;
+	}
+}
+
+// ============
+// Stav zadosti
+// ============
+
+.ticket-header {margin: 8px 0px;}
+.ticket-details {
+	display: grid;
+	grid-auto-flow: row;
+	gap: 16px;
+
+	.v-data {
+		display: grid;
+		grid-auto-flow: row;
+		label {font-size: 18px;}
+
+		p {
+			font-size: 20px;
+			color: white;
+			border-bottom: 1px solid grey;
+			padding: 2px 4px;
+		}
+	}
+}

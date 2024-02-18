@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>INTRANET | ADMIN PANEL</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<%- include('homebtn'); -%>
+	
+	<main>
+		<h1>ADMIN PANEL</h1>
+
+		<br>
+
+		<section id="pban-table">
+			<h2>Žádosti o Unban</h2>
+
+			<section class="penalties-table">
+				<% for(const zadost of zadosti) { %>
+					<div class="penalty" title=<%= zadost.ID %> >
+						<p class="user"><%= zadost.userID %><br><span class="banreason"><%= zadost.duvod %></span></p>
+						<p class="reason"><%= zadost.procunban %></p>
+						<p class="timestamp"><%= moment(zadost.timestamp).tz("Europe/Prague").format("DD.MM.YYYY HH:mm:ss") %> <br>Unban: <span class=<%= zadost.unbanned ? "unban" : "banreason" %>><%= zadost.unbanned ? "Ano" : "Ne" %></span></p>
+					</div>
+				<% } %>
+			</section>
+		</section>
+
+	</main>
+</body>
+</html>

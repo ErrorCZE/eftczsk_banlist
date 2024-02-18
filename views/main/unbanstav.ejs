@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EFT CZ/SK</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+	<%- include('homebtn'); -%>
+	
+	<main>
+		<h1>EFT CZ/SK Stav žádosti</h1>
+
+		<% if(!existuje) { %>
+			<h2 class="ticket-header">Taková žádost neexistuje!</h2>
+		<% } else { %>
+			<h2 class="ticket-header">Žádost <%= id %></h2>
+			<section class="ticket-details">
+				<div class="v-data">
+					<label>Čas odeslani</label>
+					<p><%= new Date(timestamp).toLocaleTimeString("cs-CZ") %> <%= new Date(timestamp).toLocaleDateString("cs-CZ") %></p>
+				</div>
+
+				<div class="v-data">
+					<label>ID Uživatele</label>
+					<p><%= userID %></p>
+				</div>
+
+				<div class="v-data">
+					<label>Důvod banu</label>
+					<p><%= duvod %></p>
+				</div>
+
+				<div class="v-data">
+					<label>Důvod unbanu</label>
+					<p><%= procunban %></p>
+				</div>
+
+				<div class="v-data">
+					<label>Žádost schválená</label>
+					<p><%= unbanned ? "Ano" : "Ne"  %></p>
+				</div>
+			</section>
+		<% } %>
+	</main>
+</body>
+
+</html>

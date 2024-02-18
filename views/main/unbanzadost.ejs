@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EFT CZ/SK - Žádost o unban</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+	<%- include('homebtn'); -%>
+	
+	<main>
+		<h1>EFT CZ/SK Žádost o unban</h1>
+
+		<form action="/zadost-o-unban" method="POST">
+			<div class="form-input">
+				<label for="userid">User ID</label>
+				<input type="text" name="userid" autocomplete="off" id="userid" placeholder="User ID">
+			</div>
+
+			<div class="form-input">
+				<label for="duvodbanu">Důvod Banu</label>
+				<input type="text" name="duvodbanu" autocomplete="off" required id="duvodbanu" placeholder="Důvod banu">
+			</div>
+
+			<div class="form-input">
+				<label for="procunban">Proč by jsi měl mít unban</label>
+				<input type="text" name="procunban" autocomplete="off" required id="procunban" placeholder="Důvod žádosti">
+			</div>
+
+			<button>Odeslat žádost</button>
+		</form>
+
+	</main>
+</body>
+
+</html>
